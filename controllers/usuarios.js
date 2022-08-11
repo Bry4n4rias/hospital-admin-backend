@@ -118,7 +118,6 @@ const actualizarUsuario = async (req, res = response) => {
 
 const borrarUsuario = async (req, res = response) => {
   const uid = req.params.id;
-  // console.log(uid);
   try {
     const usuarioDB = await Usuario.findById(uid);
 
@@ -128,7 +127,7 @@ const borrarUsuario = async (req, res = response) => {
         msg: 'No existe el usuario por el id',
       });
     }
-    await Usuario.findOneAndDelete(uid);
+    await Usuario.findByIdAndDelete(uid);
 
     res.status(200).json({
       ok: true,

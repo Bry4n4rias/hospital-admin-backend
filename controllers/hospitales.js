@@ -3,15 +3,19 @@ const hospital = require('../models/hospital');
 const Hospital = require('../models/hospital');
 
 const getHospitales = async (req, res = response) => {
+  const desde = Number(req.query.desde) || 0;
   // con el populate miramos quien creo el hospital y demas datos
   const hospitales = await Hospital.find().populate(
     'usuario',
     'nombre email img'
   );
 
+  const total = await Hospital.count();
+
   res.status(200).json({
     ok: true,
     hospitales: hospitales,
+    totalHospitales: total,
   });
 };
 
