@@ -7,7 +7,6 @@ const getMenuFrontend = (role = 'USER_ROLE') => {
         { titulo: 'Principal', url: '' },
         { titulo: 'Progressbar', url: 'progress' },
         { titulo: 'Grafica', url: 'grafica1' },
-        { titulo: 'Promesas', url: 'promesas' },
         { titulo: 'RxJs', url: 'rxjs' },
       ],
     },
